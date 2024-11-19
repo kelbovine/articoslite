@@ -1,0 +1,233 @@
+
+<html><head><base href="https://garticlite.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GarticLite Mod</title>
+<style>
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #2C3E50;
+    --accent-color: #8E44AD;
+    --success-color: #27AE60;
+    --pink-color: #E91E63;
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f6fa;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background: var(--secondary-color);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: var(--primary-color);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.content {
+    padding: 80px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.download-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.download-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.blue { background: var(--primary-color); }
+.black { background: var(--secondary-color); }
+.purple { background: var(--accent-color); }
+.pink { background: var(--pink-color); }
+.green { background: var(--success-color); }
+
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.section.active {
+    display: block;
+    opacity: 1;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        transform: translateX(0);
+    }
+    
+    .content {
+        margin-left: var(--sidebar-width);
+    }
+    
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
+.logo {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section h1 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.section p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+<body>
+
+<button class="sidebar-toggle">☰</button>
+
+<nav class="sidebar">
+    <div class="logo">GarticLite</div>
+    <a href="#home" class="nav-link" data-section="home">Página Inicial</a>
+    <a href="#about" class="nav-link" data-section="about">Sobre o Mod</a>
+    <a href="https://gartic.com.br" class="nav-link">Ir para Mod Normal</a>
+</nav>
+
+<main class="content">
+    <section id="home" class="section active">
+        <h1>Bem-vindo ao GarticLite</h1>
+        <p>O GarticLite é uma versão otimizada e melhorada do famoso jogo Gartic, oferecendo uma experiência mais leve e fluida para todos os jogadores.</p>
+        <p>Com recursos exclusivos e uma interface intuitiva, o GarticLite proporciona diversão garantida mantendo a essência do jogo original.</p>
+    </section>
+
+    <section id="about" class="section">
+        <h1>Sobre o GarticLite Mod</h1>
+        <p>O GarticLite é um mod desenvolvido pela comunidade que traz diversas melhorias ao Gartic original:</p>
+        <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.6; color: #555;">
+            <li>Interface mais limpa e moderna</li>
+            <li>Melhor desempenho</li>
+        </ul>
+        
+        <h2 style="color: var(--secondary-color); margin-bottom: 15px;">Downloads Disponíveis</h2>
+        <div class="download-buttons">
+            <a href="https://github.com/kepplinho/gtcm/releases/download/etual5/Gartick8.8Lite.apk" class="download-btn blue">Baixar Azul Original</a>
+            <a href="https://github.com/kepplinho/gtcm/releases/download/etual5/GarticDark8.8Lite.apk" class="download-btn black">Baixar Escuro</a>
+            <a href="https://github.com/kepplinho/gtcm/releases/download/etual5/GarticRoxo8.8Lite.apk" class="download-btn purple">Baixar Roxo</a>
+            <a href="https://github.com/kepplinho/gtcm/releases/download/etual5/GarticRosak8.8Lite.apk" class="download-btn pink">Baixar Rosa</a>
+            <a href="https://github.com/kepplinho/gtcm/releases/download/etual5/GarticVerde8.8Lite.apk" class="download-btn green">Baixar Verde</a>
+        </div>
+    </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
+
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const sectionId = link.dataset.section;
+            
+            if (sectionId) {
+                e.preventDefault();
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+                
+                
+                if (window.innerWidth < 768) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+    });
+
+   
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth < 768 && 
+            !sidebar.contains(e.target) && 
+            !sidebarToggle.contains(e.target)) {
+            sidebar.classList.remove('active');
+        }
+    });
+});
+</script>
+
+</body></html>
