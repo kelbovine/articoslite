@@ -187,46 +187,57 @@ body {
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     const sidebarToggle = document.querySelector('.sidebar-toggle');
     const sidebar = document.querySelector('.sidebar');
-    
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+
+
     sidebarToggle.addEventListener('click', () => {
         sidebar.classList.toggle('active');
     });
 
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.section');
+    function showSectionByHash() {
+        const hash = location.hash.replace('#', '');
+        if (hash) {
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const targetSection = document.getElementById(hash);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+    }
+
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const sectionId = link.dataset.section;
-            
             if (sectionId) {
                 e.preventDefault();
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(sectionId).classList.add('active');
-                
-                
-                if (window.innerWidth < 768) {
-                    sidebar.classList.remove('active');
-                }
+                location.hash = sectionId;
             }
         });
     });
 
-   
+
     document.addEventListener('click', (e) => {
-        if (window.innerWidth < 768 && 
-            !sidebar.contains(e.target) && 
+        if (window.innerWidth < 768 &&
+            !sidebar.contains(e.target) &&
             !sidebarToggle.contains(e.target)) {
             sidebar.classList.remove('active');
         }
     });
+
+
+    showSectionByHash();
+
+
+    window.addEventListener('hashchange', showSectionByHash);
 });
 </script>
 
