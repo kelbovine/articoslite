@@ -1,6 +1,12 @@
+
 <html><head><base href="." />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="GarticMods Lite - A versão otimizada do seu mod favorito para Gartic">
+<meta property="og:title" content="GarticMods Lite">
+<meta property="og:description" content="GarticMods Lite - A versão otimizada do seu mod favorito para Gartic">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <title>GarticMods Lite</title>
 <style>
     * {
@@ -283,7 +289,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#" onclick="showInitialContent()">Página Inicial</a>
-    <a href="#" onclick="showDownloadContent()">Baixar o Mod</a>
+    <a href="#download" onclick="showDownloadContent()">Baixar o Mod</a>
     <a href="https://gtcmod.onrender.com/">Mod Normal</a>
 </div>
 
@@ -329,20 +335,20 @@
 
     <div id="download-content">
         <div class="header">
-                    <h1>Downloads</h1>
-<br>
+        <h1>Downloads</h1>
+        <br>
             <h1>Escolha sua cor</h1>
         </div>
         <div class="color-buttons">
-            <button class="color-btn" style="background-color: #007AFF" onclick="showImages('blue')">Azul Original</button>
-            <button class="color-btn" style="background-color: #1C1C1E" onclick="showImages('dark')">Escuro</button>
-            <button class="color-btn" style="background-color: #34C759" onclick="showImages('green')">Verde</button>
-            <button class="color-btn" style="background-color: #AF52DE" onclick="showImages('purple')">Roxo</button>
-            <button class="color-btn" style="background-color: #FF2D55" onclick="showImages('pink')">Rosa</button>
+            <button class="color-btn" style="background-color: #007AFF" onclick="showImages('azul')">Azul Original</button>
+            <button class="color-btn" style="background-color: #1C1C1E" onclick="showImages('escuro')">Escuro</button>
+            <button class="color-btn" style="background-color: #34C759" onclick="showImages('verde')">Verde</button>
+            <button class="color-btn" style="background-color: #AF52DE" onclick="showImages('roxo')">Roxo</button>
+            <button class="color-btn" style="background-color: #FF2D55" onclick="showImages('rosa')">Rosa</button>
         </div>
 
         <div class="images-wrapper" id="images-wrapper">
-        
+
         </div>
 
         <button id="download-btn" class="download-btn">Baixar Mod</button>
@@ -354,25 +360,47 @@
     <img class="modal-content" id="modalImg">
 </div>
 
+<div style="display: none;">
+
+    <img src="https://i.postimg.cc/j5KV24b6/Screenshot-20241110-072455-Gartic-Dark-Lite.jpg" alt="escuro theme preview">
+    <img src="https://i.postimg.cc/HLbDTPfs/Screenshot-20241110-072450-Gartic-Dark-Lite.jpg" alt="escuro theme preview">
+    
+
+    <img src="https://i.postimg.cc/SNPwCh4x/Screenshot-20241110-072512-Gartic-Lite.jpg" alt="azul theme preview">
+    <img src="https://i.postimg.cc/hvPHb4hf/Screenshot-20241110-072515-Gartic-Lite.jpg" alt="azul theme preview">
+    
+
+    <img src="https://i.postimg.cc/ZKnGWq1Q/Screenshot-20241110-072554-Gartic-Verde-Lite.jpg" alt="verde theme preview">
+    <img src="https://i.postimg.cc/43kq2QmC/Screenshot-20241110-072557-Gartic-Verde-Lite.jpg" alt="verde theme preview">
+    
+
+    <img src="https://i.postimg.cc/KjqC9XgQ/Screenshot-20241110-072528-Gartic-Rosa-Lite.jpg" alt="rosa theme preview">
+    <img src="https://i.postimg.cc/zfCMsHgy/Screenshot-20241110-072622-Gartic-Rosa-Lite.jpg" alt="rosa theme preview">
+    
+
+    <img src="https://i.postimg.cc/8kZ8kvnW/Screenshot-20241110-072539-Gartic-Roxo-Lite.jpg" alt="roxo theme preview">
+    <img src="https://i.postimg.cc/MpjgYFZb/Screenshot-20241110-072634-Gartic-Roxo-Lite.jpg" alt="roxo theme preview">
+</div>
+
 <script>
 const imageUrls = {
-    dark: [
+    escuro: [
         'https://i.postimg.cc/j5KV24b6/Screenshot-20241110-072455-Gartic-Dark-Lite.jpg',
         'https://i.postimg.cc/HLbDTPfs/Screenshot-20241110-072450-Gartic-Dark-Lite.jpg'
     ],
-    blue: [
+    azul: [
         'https://i.postimg.cc/SNPwCh4x/Screenshot-20241110-072512-Gartic-Lite.jpg',
         'https://i.postimg.cc/hvPHb4hf/Screenshot-20241110-072515-Gartic-Lite.jpg'
     ],
-    green: [
+    verde: [
         'https://i.postimg.cc/ZKnGWq1Q/Screenshot-20241110-072554-Gartic-Verde-Lite.jpg',
         'https://i.postimg.cc/43kq2QmC/Screenshot-20241110-072557-Gartic-Verde-Lite.jpg'
     ],
-    pink: [
+    rosa: [
         'https://i.postimg.cc/KjqC9XgQ/Screenshot-20241110-072528-Gartic-Rosa-Lite.jpg',
         'https://i.postimg.cc/zfCMsHgy/Screenshot-20241110-072622-Gartic-Rosa-Lite.jpg'
     ],
-    purple: [
+    roxo: [
         'https://i.postimg.cc/8kZ8kvnW/Screenshot-20241110-072539-Gartic-Roxo-Lite.jpg',
         'https://i.postimg.cc/MpjgYFZb/Screenshot-20241110-072634-Gartic-Roxo-Lite.jpg'
     ]
@@ -390,13 +418,28 @@ function showInitialContent() {
     document.getElementById("initial-content").style.display = "block";
     document.getElementById("download-content").style.display = "none";
     closeNav();
+
+    history.pushState("", document.title, window.location.pathname + window.location.search);
 }
 
 function showDownloadContent() {
     document.getElementById("initial-content").style.display = "none";
     document.getElementById("download-content").style.display = "block";
     closeNav();
+
+    window.location.hash = 'download';
 }
+
+function handlePageLoad() {
+    if(window.location.hash === '#download') {
+        showDownloadContent();
+    } else {
+        showInitialContent();
+    }
+}
+
+
+window.addEventListener('hashchange', handlePageLoad);
 
 function showImages(color) {
     const wrapper = document.getElementById('images-wrapper');
@@ -414,20 +457,43 @@ function showImages(color) {
         wrapper.appendChild(img);
     });
     
+
+    const colorName = color.charAt(0).toUpperCase() + color.slice(1); 
+    downloadBtn.textContent = `Baixar Mod ${colorName}`;
+    
     downloadBtn.style.display = 'block';
     downloadBtn.style.backgroundColor = getColorCode(color);
+    downloadBtn.dataset.color = color;
 }
 
 function getColorCode(color) {
     const colors = {
-        'blue': '#007AFF',
-        'dark': '#1C1C1E',
-        'green': '#34C759',
-        'purple': '#AF52DE',
-        'pink': '#FF2D55'
+        'azul': '#007AFF',
+        'escuro': '#1C1C1E',
+        'verde': '#34C759',
+        'roxo': '#AF52DE',
+        'rosa': '#FF2D55'
     };
     return colors[color];
 }
+
+function getDownloadLink(color) {
+    const links = {
+        'azul': 'https://github.com/kepplinho/gtcm/releases/download/etual5/Gartic8.8Lite.apk',
+        'escuro': 'https://github.com/kepplinho/gtcm/releases/download/etual5/GarticDark8.8Lite.apk',
+        'verde': 'https://github.com/kepplinho/gtcm/releases/download/etual5/GarticVerde8.8Lite.apk',
+        'roxo': 'https://github.com/kepplinho/gtcm/releases/download/etual5/GarticRoxo8.8Lite.apk',
+        'rosa': 'https://github.com/kepplinho/gtcm/releases/download/etual5/GarticRosa8.8Lite.apk'
+    };
+    return links[color];
+}
+
+const downloadBtn = document.getElementById('download-btn');
+downloadBtn.onclick = function() {
+    const color = this.dataset.color;
+    const downloadLink = getDownloadLink(color);
+    window.location.href = downloadLink;
+};
 
 function showModal(imgSrc) {
     const modal = document.getElementById('imageModal');
@@ -465,7 +531,7 @@ function showDiscord() {
     }, 1000);
 }
 
-showInitialContent();
+handlePageLoad();
 </script>
 
 </body></html>
